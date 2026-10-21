@@ -10,13 +10,16 @@
   <meta name="description" content="Eric Staskiewicz - beruflicher Hintergrund zwischen Handwerk, Elektro- und Sicherheitstechnik, IT, Planung und Digitalisierung.">
   <meta property="og:title" content="Über mich | ES Planung & Digitalisierung">
   <meta property="og:image" content="assets/social-preview-1200x630.png">
+<link rel="stylesheet" href="navigation.css">
+<script src="navigation.js" defer></script>
 </head>
 <body>
-<header class="top">
+<header class="top site-header">
   <div class="wrap nav">
     <a class="brand" href="index.html"><img src="assets/logo-mark-64.png" alt="ES Logo"><span>ES Planung &amp; Digitalisierung</span></a>
-    <nav class="navlinks" aria-label="Hauptnavigation">
-      <a href="index.html#leistungen">Leistungen</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menü</button>
+<nav class="navlinks" id="site-navigation" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a><a href="preise.html">Preise &amp; Leistungen</a>
       <a href="about.html" aria-current="page">Über mich</a>
       <a href="demo.html">Demo</a>
       <a href="index.html#kontakt">Kontakt</a>
@@ -128,8 +131,8 @@
   </section>
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-row"><div>© 2026 ES Planung &amp; Digitalisierung</div><div class="footer-links"><a href="about.html">Über mich</a><a href="demo.html">Demo</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
+<footer class="footer site-footer">
+  <div class="wrap footer-row"><div>© 2026 ES Planung &amp; Digitalisierung</div><div class="footer-links"><a href="preise.html">Preise &amp; Leistungen</a><a href="index.html#kontakt">Kontakt</a><a href="about.html">Über mich</a><a href="demo.html">Demo</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></div>
 </footer>
 </body>
 </html>
