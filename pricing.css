@@ -30,6 +30,9 @@
 .pricing-section .travel-item strong { font-size: 1.3rem; margin: 6px 0; }
 .pricing-section .travel-item small { color: #d5dde8; }
 .pricing-note p { color: var(--muted); }
+.pricing-note .tax-note { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pricing-note .tax-note h3 { font-size: 1rem; }
+.pricing-note .tax-note p { font-size: .94rem; }
 .pricing-note .legal-note { font-size: .9rem; padding-top: 18px; border-top: 1px solid var(--line); margin-bottom: 0; }
 .pricing-section .pricing-cta { background: var(--blue); color: var(--white); }
 @media (max-width: 620px) {

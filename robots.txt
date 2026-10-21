@@ -1,3 +1,2 @@
 User-agent: *
 Disallow: /
-# Bis zum produktiven Go-live absichtlich nicht indexieren.
