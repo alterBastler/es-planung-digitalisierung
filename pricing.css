@@ -7,6 +7,8 @@
 .pricing-info, .pricing-note { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); margin-bottom: 28px; }
 .pricing-info { border-left: 4px solid var(--accent); }
 .pricing-info p { margin-bottom: 0; color: var(--muted); }
+.pricing-section h2 { margin: 0 0 12px; font-size: 1.3rem; line-height: 1.35; }
+.pricing-section .scope-note { margin: 0 0 28px; color: var(--muted); font-size: .94rem; }
 .pricing-section .price-block { border: 1px solid var(--line); border-radius: 18px; background: var(--white); margin-bottom: 24px; overflow: hidden; }
 .pricing-section .price-block-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 26px; border-bottom: 1px solid var(--line); }
 .pricing-section .price-block-head > div { display: flex; align-items: center; gap: 16px; min-width: 0; }
@@ -30,6 +32,11 @@
 .pricing-section .travel-item strong { font-size: 1.3rem; margin: 6px 0; }
 .pricing-section .travel-item small { color: #d5dde8; }
 .pricing-note p { color: var(--muted); }
+.pricing-note li, .pricing-inquiry p { color: var(--muted); }
+.pricing-note ul { padding-left: 22px; }
+.pricing-note li + li { margin-top: 6px; }
+.pricing-note .binding-note { padding: 18px 20px; border-left: 4px solid var(--accent); border-radius: 10px; background: var(--soft); color: var(--ink); }
+.pricing-inquiry { max-width: 800px; }
 .pricing-note .tax-note { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
 .pricing-note .tax-note h3 { font-size: 1rem; }
 .pricing-note .tax-note p { font-size: .94rem; }
