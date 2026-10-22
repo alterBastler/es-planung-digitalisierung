@@ -12,7 +12,7 @@
 .pricing-section .price-block { border: 1px solid var(--line); border-radius: 18px; background: var(--white); margin-bottom: 24px; overflow: hidden; }
 .pricing-section .price-block-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 26px; border-bottom: 1px solid var(--line); }
 .pricing-section .price-block-head > div { display: flex; align-items: center; gap: 16px; min-width: 0; }
-.pricing-section .number { color: var(--blue); font-weight: 700; }
+.pricing-section .number { color: var(--blue); font-weight: 700; white-space: nowrap; flex-shrink: 0; }
 .pricing-section h3 { margin: 0; font-size: 1.2rem; }
 .pricing-section .badge { white-space: nowrap; color: var(--blue); font-size: .8rem; padding: 5px 10px; }
 .pricing-section .price-row { padding: 20px 26px; }
