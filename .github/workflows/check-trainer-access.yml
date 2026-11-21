@@ -1,0 +1,40 @@
+name: Trainer access check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - codex/protected-trainer-access-20261121
+    paths:
+      - trainings.config.json
+      - .github/workflows/check-trainer-access.yml
+
+permissions:
+  contents: read
+
+jobs:
+  public-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Verify HTTPS entry and denied anonymous data access from outside the home network
+        shell: bash
+        run: |
+          set -euo pipefail
+          for trainer in medizin ingenieur; do
+            host="${trainer}.es-planung-digitalisierung.de"
+            curl --fail --silent --show-error --retry 2 --connect-timeout 10 --max-time 25 \
+              "https://${host}:8443/" -o /tmp/trainer-entry.html
+            test "$(grep -c 'Freigabecode' /tmp/trainer-entry.html)" -ge 1
+            for path in /api/state /api/export /api/backup; do
+              status="$(curl --silent --show-error --connect-timeout 10 --max-time 25 \
+                -o /dev/null -w '%{http_code}' "https://${host}:8443${path}")"
+              test "$status" = 401
+            done
+            status="$(curl --silent --show-error --connect-timeout 10 --max-time 25 \
+              -D /tmp/trainer-redirect.headers -o /dev/null -w '%{http_code}' "http://${host}/")"
+            test "$status" = 308
+            grep -iq "^location: https://${host}:8443/" /tmp/trainer-redirect.headers
+            echo "${trainer}: valid HTTPS, activation required, anonymous data access denied, HTTP redirects to HTTPS."
+          done

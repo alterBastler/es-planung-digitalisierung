@@ -1,4 +1,4 @@
 {
-  "medizin": null,
-  "ingenieur": null
+  "medizin": "https://medizin.es-planung-digitalisierung.de:8443/",
+  "ingenieur": "https://ingenieur.es-planung-digitalisierung.de:8443/"
 }
