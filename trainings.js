@@ -15,7 +15,7 @@ async function loadTrainerEntries() {
     for (const key of Object.keys(allowedTrainerHosts)) {
       if (typeof config[key] !== 'string') continue;
       const url = new URL(config[key]);
-      if (url.protocol !== 'https:' || url.hostname !== allowedTrainerHosts[key] || url.username || url.password || url.port || url.search || url.hash || url.pathname !== '/') continue;
+      if (url.protocol !== 'https:' || url.hostname !== allowedTrainerHosts[key] || url.username || url.password || url.port !== '8443' || url.search || url.hash || url.pathname !== '/') continue;
       const button = document.querySelector(`[data-trainer="${key}"]`);
       if (!button) continue;
       const link = document.createElement('a');
