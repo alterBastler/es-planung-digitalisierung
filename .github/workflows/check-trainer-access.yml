@@ -26,7 +26,7 @@ jobs:
             host="${trainer}.es-planung-digitalisierung.de"
             curl --fail --silent --show-error --retry 2 --connect-timeout 10 --max-time 25 \
               "https://${host}:8443/" -o /tmp/trainer-entry.html
-            test "$(grep -c 'Freigabecode' /tmp/trainer-entry.html)" -ge 1
+            grep -Eq 'name="(key|code)"' /tmp/trainer-entry.html
             for path in /api/state /api/export /api/backup; do
               status="$(curl --silent --show-error --connect-timeout 10 --max-time 25 \
                 -o /dev/null -w '%{http_code}' "https://${host}:8443${path}")"
