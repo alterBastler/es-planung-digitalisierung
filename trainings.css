@@ -1,0 +1,16 @@
+.training-intro { padding: 64px 0 30px; }
+.training-intro h1 { max-width: 760px; }
+.training-intro p { max-width: 760px; font-size: 1.1rem; }
+.training-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; padding-bottom: 48px; }
+.training-card { padding: 30px; border: 1px solid #dce3eb; border-radius: 16px; background: #fff; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.training-card h2 { margin: 0; font-size: 1.7rem; }
+.training-card p { margin: 0; }
+.training-card ul { padding-left: 22px; }
+.training-status { color: #52637a; font-weight: 600; }
+.training-entry { margin-top: auto; display: inline-block; padding: 13px 18px; border-radius: 9px; border: 1px solid #345b98; background: #345b98; color: #fff; font: inherit; text-decoration: none; text-align: center; }
+.training-entry[disabled] { cursor: default; background: #eef2f7; color: #52637a; border-color: #cbd5e1; }
+.training-entry:focus-visible { outline: 3px solid #345b98; outline-offset: 4px; }
+.training-privacy { padding: 26px; border-left: 4px solid #345b98; background: #eef3f9; border-radius: 10px; margin-bottom: 60px; }
+.training-privacy h2 { font-size: 1.3rem; }
+.training-back { margin-bottom: 34px; }
+@media(max-width:700px) { .training-grid { grid-template-columns: minmax(0,1fr); } .training-card { padding: 24px; } .training-intro { padding-top: 36px; } }

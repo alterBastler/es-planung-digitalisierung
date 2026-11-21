@@ -1,3 +1,15 @@
+// Add the shared entry point without duplicating it on updated pages.
+for (const navigation of document.querySelectorAll('#site-navigation, .footer-links')) {
+  if (navigation.querySelector('a[href="trainings.html"]')) continue;
+  const link = document.createElement('a');
+  link.href = 'trainings.html';
+  link.textContent = 'Lerntrainer';
+  navigation.appendChild(link);
+}
+if (location.pathname.endsWith('/trainings.html')) {
+  document.querySelector('#site-navigation a[href="trainings.html"]')?.setAttribute('aria-current', 'page');
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const siteNavigation = document.querySelector('#site-navigation');
 
