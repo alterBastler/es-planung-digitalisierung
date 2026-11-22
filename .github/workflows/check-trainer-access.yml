@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - codex/protected-trainer-access-20261121
+      - codex/central-online-20261122
     paths:
       - trainings.config.json
       - .github/workflows/check-trainer-access.yml
@@ -38,3 +39,21 @@ jobs:
             grep -iq "^location: https://${host}:8443/" /tmp/trainer-redirect.headers
             echo "${trainer}: valid HTTPS, activation required, anonymous data access denied, HTTP redirects to HTTPS."
           done
+      - name: Verify native HVDM portal login and denied anonymous application access
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://zentrale.es-planung-digitalisierung.de:8443"
+          curl --fail --silent --show-error --retry 2 --connect-timeout 10 --max-time 25 \
+            "${base}/hardware/" -o /tmp/central-entry.html
+          grep -q 'id="login-form"' /tmp/central-entry.html
+          for path in /hardware/api/portal/session /hardware/api/portal/apps /hardware/apps/business-prod/ /hardware/apps/mail/; do
+            status="$(curl --silent --show-error --connect-timeout 10 --max-time 25 \
+              -o /dev/null -w '%{http_code}' "${base}${path}")"
+            test "$status" = 401
+          done
+          status="$(curl --silent --show-error --connect-timeout 10 --max-time 25 \
+            -H 'Origin: https://attacker.invalid' -H 'Content-Type: application/json' \
+            -d '{}' -o /dev/null -w '%{http_code}' "${base}/hardware/api/portal/session/login")"
+          test "$status" = 403
+          echo 'HVDM: valid HTTPS, native portal login required, anonymous data denied, cross-origin login denied.'

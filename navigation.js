@@ -1,10 +1,19 @@
 // Add the shared entry point without duplicating it on updated pages.
 for (const navigation of document.querySelectorAll('#site-navigation, .footer-links')) {
-  if (navigation.querySelector('a[href="trainings.html"]')) continue;
-  const link = document.createElement('a');
-  link.href = 'trainings.html';
-  link.textContent = 'Lerntrainer';
-  navigation.appendChild(link);
+  if (!navigation.querySelector('a[href="trainings.html"]')) {
+    const link = document.createElement('a');
+    link.href = 'trainings.html';
+    link.textContent = 'Lerntrainer';
+    navigation.appendChild(link);
+  }
+  const centralURL = 'https://zentrale.es-planung-digitalisierung.de:8443/hardware/';
+  if (!navigation.querySelector(`a[href="${centralURL}"]`)) {
+    const link = document.createElement('a');
+    link.href = centralURL;
+    link.textContent = 'HVDM';
+    link.title = 'Geschützte HVDM-Zentrale';
+    navigation.appendChild(link);
+  }
 }
 if (location.pathname.endsWith('/trainings.html')) {
   document.querySelector('#site-navigation a[href="trainings.html"]')?.setAttribute('aria-current', 'page');
